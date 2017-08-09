@@ -37,16 +37,6 @@ class TenantsController extends ApiController
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -79,17 +69,6 @@ class TenantsController extends ApiController
         return $this->respond([
             'data' => $this->tenantTransformer->transform($tenant),
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Tenant  $tenant
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tenant $tenant)
-    {
-        //
     }
 
     /**

@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Campaign;
 use Illuminate\Http\Request;
+use App\Transformers\CampaignTransformer;
 
-class CampaignsController extends Controller
+class CampaignsController extends ApiController
 {
+    function __construct(CampaignTransformer $campaignTransformer)
+    {
+        $this->campaignTransformer = $campaignTransformer;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,17 +19,10 @@ class CampaignsController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $campaigns = Campaign::all();
+        return $this->respond([
+            'data' => $this->campaignTransformer->transformCollection($campaigns),
+        ]);
     }
 
     /**
@@ -45,17 +43,6 @@ class CampaignsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Campaign $campaign)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Campaign  $campaign
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Campaign $campaign)
     {
         //
     }

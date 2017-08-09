@@ -13,7 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::apiResource('tenants', 'TenantsController', ['as' => 'api']);
+Route::apiResource('tenants', 'TenantsController');
+Route::apiResource('campaigns', 'CampaignsController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
