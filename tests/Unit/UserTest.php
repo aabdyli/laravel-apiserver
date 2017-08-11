@@ -1,16 +1,17 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ExampleTest extends TestCase
+class UserTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    public function it_is()
+    public function it_can_create_appointments()
     {
+
     }
 }

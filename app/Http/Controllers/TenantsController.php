@@ -14,7 +14,7 @@ class TenantsController extends ApiController
      */
     protected $tenantTransformer;
 
-    function __construct(TenantTransformer $tenantTransformer)
+    public function __construct(TenantTransformer $tenantTransformer)
     {
         $this->tenantTransformer = $tenantTransformer;
         $this->middleware('auth.basic')->only(['store']);
@@ -44,8 +44,7 @@ class TenantsController extends ApiController
      */
     public function store(Request $request)
     {
-        if ( ! $request->name or ! $request->description)
-        {
+        if (! $request->name or ! $request->description) {
             return $this->respondFailedValidation('Parameters failed validation');
         }
         Tenant::create($request->all());
@@ -62,8 +61,7 @@ class TenantsController extends ApiController
     public function show($tenant)
     {
         $tenant = Tenant::find($tenant);
-        if( ! $tenant )
-        {
+        if (! $tenant) {
             return $this->respondNotFound('Tenant not found');
         }
         return $this->respond([

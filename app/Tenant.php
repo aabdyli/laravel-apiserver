@@ -8,7 +8,7 @@ class Tenant extends Model
 {
     protected $fillable = ['name', 'description'];
 
-    public function campaign()
+    public function campaigns()
     {
         return $this->hasMany(Campaign::class);
     }

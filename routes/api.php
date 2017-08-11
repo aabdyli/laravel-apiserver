@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 Route::apiResource('tenants', 'TenantsController');
 Route::apiResource('campaigns', 'CampaignsController');
+Route::apiResource('tenants.campaigns', 'TenantsCampaignsController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
